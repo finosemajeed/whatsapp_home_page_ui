@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:whatsapp_ui_clone/presentation/splash_screen/splash_screen.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData.light(),
-      home: SplashScreen(),
+      home: const SplashScreen(),
     );
   }
 }

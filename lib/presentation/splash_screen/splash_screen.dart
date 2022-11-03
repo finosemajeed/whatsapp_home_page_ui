@@ -20,10 +20,11 @@ class _SplashScreenState extends State<SplashScreen> {
       Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-              builder: ((context) => BottomNavigationBarScreen())));
+              builder: ((context) => const BottomNavigationBarScreen())));
     });
   }
 
+  @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return Scaffold(
