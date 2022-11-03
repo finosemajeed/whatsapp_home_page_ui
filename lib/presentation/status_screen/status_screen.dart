@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:whatsapp_ui_clone/core/colors_config.dart';
 import 'package:whatsapp_ui_clone/core/screen_size.dart';
+import 'package:whatsapp_ui_clone/presentation/widgets/custom_appbar.dart';
+import 'package:whatsapp_ui_clone/presentation/widgets/custom_listview.dart';
 
 class StatusScreen extends StatelessWidget {
   const StatusScreen({super.key});
@@ -9,20 +11,7 @@ class StatusScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: backgroundColor,
-      appBar: AppBar(
-        backgroundColor: tealGreenDark,
-        title: const Text('Status'),
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.search),
-          ),
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.more_vert),
-          ),
-        ],
-      ),
+      appBar: customAppBar(screenName: 'Status'),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
@@ -57,21 +46,11 @@ class StatusScreen extends StatelessWidget {
             ),
           ),
           Expanded(
-            child: ListView.separated(
-                itemBuilder: ((context, index) => ListTile(
-                      leading: const CircleAvatar(
-                        radius: 35,
-                        backgroundImage:
-                            AssetImage('assets/images/whatsapplogo.png'),
-                      ),
-                      title: const Text('Sebastin'),
-                      subtitle: Text('${index + 2} minutes ago'),
-                    )),
-                separatorBuilder: ((context, index) => const Divider(
-                      thickness: 1,
-                    )),
-                itemCount: 8),
-          )
+              child: CustomListView(
+            userName: 'Sebastin',
+            profilePic: 'assets/images/whatsapplogo.png',
+            subTitle: Text("13 minutes ago"),
+          ))
         ],
       ),
     );

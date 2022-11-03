@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:whatsapp_ui_clone/core/colors_config.dart';
+import 'package:whatsapp_ui_clone/presentation/widgets/custom_appbar.dart';
+import 'package:whatsapp_ui_clone/presentation/widgets/custom_listview.dart';
 
 class CallScreen extends StatelessWidget {
   const CallScreen({super.key});
@@ -7,55 +9,27 @@ class CallScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundColor,
-      appBar: AppBar(
-        backgroundColor: tealGreenDark,
-        title: const Text('Call'),
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.search),
+        backgroundColor: backgroundColor,
+        appBar: customAppBar(screenName: 'Call'),
+        body: CustomListView(
+          userName: 'Sebastin',
+          profilePic: 'assets/images/whatsapplogo.png',
+          subTitle: Wrap(
+            children: const [
+              Icon(
+                Icons.call_received,
+                color: Colors.red,
+                size: 20,
+              ),
+              SizedBox(width: 5),
+              Text('00:00'),
+            ],
           ),
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.more_vert),
+          trailing: const Icon(
+            Icons.call,
+            color: tealGreen,
+            size: 30,
           ),
-        ],
-      ),
-      body: ListView.separated(
-          itemBuilder: ((context, index) => ListTile(
-                leading: const CircleAvatar(
-                  radius: 35,
-                  backgroundImage: AssetImage('assets/images/whatsapplogo.png'),
-                ),
-                title: const Text(
-                  'Sebastin',
-                  style: TextStyle(
-                    fontSize: 17,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                subtitle: Wrap(
-                  children: [
-                    const Icon(
-                      Icons.call_received,
-                      color: Colors.red,
-                      size: 20,
-                    ),
-                    const SizedBox(width: 5),
-                    Text('$index:${index + 2}0'),
-                  ],
-                ),
-                trailing: const Icon(
-                  Icons.call,
-                  color: tealGreen,
-                  size: 30,
-                ),
-              )),
-          separatorBuilder: ((context, index) => const Divider(
-                thickness: 1,
-              )),
-          itemCount: 8),
-    );
+        ));
   }
 }

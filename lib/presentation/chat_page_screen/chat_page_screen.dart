@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:whatsapp_ui_clone/core/colors_config.dart';
+import 'package:whatsapp_ui_clone/presentation/widgets/custom_appbar.dart';
+import 'package:whatsapp_ui_clone/presentation/widgets/custom_listview.dart';
 
 class ChatPageScreen extends StatelessWidget {
   const ChatPageScreen({super.key});
@@ -8,38 +10,14 @@ class ChatPageScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: backgroundColor,
-      appBar: AppBar(
-        backgroundColor: tealGreenDark,
-        title: const Text('Chat'),
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.search),
-          ),
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.more_vert),
-          ),
-        ],
+      appBar: customAppBar(screenName: 'Chat'),
+      body: CustomListView(
+        userName: 'Bilbo Baggins',
+        profilePic: "assets/images/whatsapplogo.png",
+        subTitle: const Text('Hello, where are you?'),
+        trailing: const Text("12:33"),
       ),
-      body: ListView.separated(
-          itemBuilder: ((context, index) => ListTile(
-                leading: const CircleAvatar(
-                  radius: 35,
-                  backgroundImage: AssetImage('assets/images/whatsapplogo.png'),
-                ),
-                title: const Text('Sebastin',
-                    style: TextStyle(
-                      fontSize: 17,
-                      fontWeight: FontWeight.bold,
-                    )),
-                subtitle: const Text("heloo wer are you"),
-                trailing: Text('$index:${index + 2}0'),
-              )),
-          separatorBuilder: ((context, index) => const Divider(
-                thickness: 1,
-              )),
-          itemCount: 8),
     );
   }
 }
+// Text('$index:${index + 2}0')
