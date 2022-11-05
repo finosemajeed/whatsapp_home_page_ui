@@ -4,42 +4,62 @@ import 'package:whatsapp_ui_clone/presentation/calls_screen/call_screen.dart';
 import 'package:whatsapp_ui_clone/presentation/chat_page_screen/chat_page_screen.dart';
 import 'package:whatsapp_ui_clone/presentation/status_screen/status_screen.dart';
 
-class BottomNavigationBarScreen extends StatefulWidget {
+class BottomNavigationBarScreen extends StatelessWidget {
   const BottomNavigationBarScreen({super.key});
 
   @override
-  State<BottomNavigationBarScreen> createState() =>
-      _BottomNavigationBarScreenState();
-}
-
-class _BottomNavigationBarScreenState extends State<BottomNavigationBarScreen> {
-  int _selectedIndex = 0;
-  static final List<Widget> _pages = <Widget>[
-    const ChatPageScreen(),
-    const CallScreen(),
-    const StatusScreen(),
-  ];
-  void _onItmeTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: backgroundColor,
-      body: _pages.elementAt(_selectedIndex),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const [
-          BottomNavigationBarItem(
-              icon: Icon(Icons.chat_bubble_outline_rounded), label: 'Chats'),
-          BottomNavigationBarItem(icon: Icon(Icons.call), label: 'Calls'),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.data_usage_outlined), label: 'Status')
-        ],
-        currentIndex: _selectedIndex,
-        onTap: _onItmeTapped,
+    return DefaultTabController(
+      length: 4,
+      child: Scaffold(
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {},
+          backgroundColor: tealGreenDark,
+          child: const Icon(Icons.add),
+        ),
+        body: CustomScrollView(slivers: [
+          SliverAppBar(
+            backgroundColor: tealGreenDark,
+            pinned: true,
+            floating: true,
+            title: const Text('WhatsApp'),
+            actions: [
+              IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
+              PopupMenuButton(itemBuilder: (context) {
+                return const [
+                  PopupMenuItem(child: Text('New group')),
+                  PopupMenuItem(child: Text('New broadcast')),
+                  PopupMenuItem(child: Text('Linked devices')),
+                  PopupMenuItem(child: Text('Starred messages')),
+                  PopupMenuItem(child: Text('Payment')),
+                  PopupMenuItem(child: Text('Settings')),
+                ];
+              })
+            ],
+            bottom: const TabBar(
+              tabs: [
+                Tab(icon: Icon(Icons.camera_alt)),
+                Tab(text: 'CHATS'),
+                Tab(text: 'STATUS'),
+                Tab(text: 'CALLS'),
+              ],
+              indicatorColor: Colors.white,
+            ),
+          ),
+          SliverList(
+            delegate: SliverChildListDelegate([
+              const SizedBox(
+                height: 1000,
+                child: TabBarView(children: [
+                  Icon(Icons.camera_alt),
+                  ChatPageScreen(),
+                  StatusScreen(),
+                  CallScreen(),
+                ]),
+              ),
+            ]),
+          )
+        ]),
       ),
     );
   }
