@@ -43,14 +43,14 @@ class StatusScreen extends StatelessWidget {
         ),
         ListView.separated(
           shrinkWrap: true,
-          physics: ClampingScrollPhysics(),
+          physics: const ClampingScrollPhysics(),
           itemBuilder: ((context, index) => CustomListView(
                 userName: user.entries.elementAt(index + 1).value[0],
                 profilePic: user.entries.elementAt(index + 1).value[1],
                 subTitle: Text(
                     "${user.entries.elementAt(index).value[4]} minutes ago"),
               )),
-          separatorBuilder: ((context, index) => Divider()),
+          separatorBuilder: ((context, index) => const Divider()),
           itemCount: 9,
         )
       ],

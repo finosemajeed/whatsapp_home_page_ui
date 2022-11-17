@@ -10,7 +10,7 @@ class CallScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.separated(
         shrinkWrap: true,
-        physics: ClampingScrollPhysics(),
+        physics: const ClampingScrollPhysics(),
         itemBuilder: ((context, index) => CustomListView(
               userName: user.entries.elementAt(index + 3).value[0],
               profilePic: user.entries.elementAt(index + 2).value[1],
@@ -31,7 +31,7 @@ class CallScreen extends StatelessWidget {
                 size: 30,
               ),
             )),
-        separatorBuilder: ((context, index) => Divider()),
+        separatorBuilder: ((context, index) => const Divider()),
         itemCount: 8);
   }
 }
