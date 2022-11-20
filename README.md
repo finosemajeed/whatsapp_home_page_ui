@@ -4,13 +4,7 @@ A new Flutter project.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+This is a whatsapp home page UI created using Flutter.
+![whatsapp home chat](https://user-images.githubusercontent.com/36195634/202913286-d631f459-7dd8-4289-bb27-3b6384de0480.png)
+![whatsapp home menu](https://user-images.githubusercontent.com/36195634/202913298-5c17d856-2b02-4630-ab0f-ca724ff25af3.png)
+![whatsapp home status](https://user-images.githubusercontent.com/36195634/202913303-0c298f12-77b2-40dc-aa7c-0e3cb9bb6173.png)
